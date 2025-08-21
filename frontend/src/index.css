@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fiqh AI Design System - Modern Black & Purple Theme */
+
+@layer base {
+  :root {
+    /* Solid black background for modern feel */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    /* Card backgrounds with transparency */
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Vibrant purple primary */
+    --primary: 280 100% 70%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 280 100% 80%;
+
+    /* Lighter purple secondary */
+    --secondary: 280 60% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 280 40% 80%;
+
+    /* Muted purple tones */
+    --muted: 280 20% 20%;
+    --muted-foreground: 280 10% 70%;
+
+    /* Accent purple */
+    --accent: 260 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 260 60% 85%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 280 20% 15%;
+    --input: 0 0% 10%;
+    --ring: 280 100% 70%;
+
+    /* Purple gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(280 100% 70%), hsl(280 100% 80%));
+    --gradient-secondary: linear-gradient(135deg, hsl(280 60% 50%), hsl(260 80% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%), hsl(280 50% 10%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 5%), hsl(280 20% 8%));
+    
+    /* Purple shadows and glows */
+    --shadow-warm: 0 10px 30px -10px hsl(280 100% 70% / 0.3);
+    --shadow-deep: 0 20px 40px -10px hsl(280 60% 50% / 0.4);
+    --shadow-glow: 0 0 40px hsl(280 100% 80% / 0.6);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Light mode for toggle - white background */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 95%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 95%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-500;
+    background: hsl(var(--background));
+  }
+
+  /* Custom animations for Fiqh AI */
+  @keyframes grow-in {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-down {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0.8;
+      transform: translateY(100vh);
+    }
+  }
+
+  @keyframes fade-in-delayed {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes ripple {
+    0% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.3);
+    }
+    70% {
+      box-shadow: 0 0 0 10px hsl(var(--primary) / 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.6);
+    }
+  }
+}
+
+@layer components {
+  .hero-title {
+    @apply text-8xl font-black text-foreground tracking-tight;
+    animation: grow-in 1s ease-out;
+  }
+
+  .hero-subtitle {
+    @apply text-lg text-foreground/80 font-normal;
+    animation: fade-in-left 1.2s ease-out 0.5s both;
+  }
+
+  .navbar {
+    @apply fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center backdrop-blur-sm bg-black/20;
+  }
+
+  .chat-container {
+    @apply min-h-screen flex flex-col items-center justify-start pt-20 px-4 space-y-6;
+  }
+
+  .message-user {
+    @apply text-primary text-lg font-medium;
+    animation: slide-up 0.5s ease-out;
+  }
+
+  .message-ai {
+    @apply text-secondary-light leading-relaxed;
+    animation: slide-up 0.7s ease-out;
+  }
+
+  .typing-indicator {
+    @apply text-muted-foreground animate-pulse;
+  }
+
+  .fade-transition {
+    @apply transition-opacity duration-500 ease-in-out;
+  }
+}
