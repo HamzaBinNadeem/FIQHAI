@@ -62,11 +62,13 @@ const Chat = () => {
     }
 
     try {
-      const res = await fetch(`http://127.0.0.1:8000/ask`, {
+      const res = await fetch(API_BASE, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: text }),
       });
+
+
 
       if (!res.ok || !res.body) {
         throw new Error(`HTTP ${res.status}`);
